@@ -1,5 +1,10 @@
 module CSCReactor_jlOs
+    using LibSerialPort
 
-# Write your package code here.
+    #! include base
+    include("base/0_types.jl")
+    include("base/csvlines.jl")
+    include("base/inOs_interface.jl")
+    include("base/serial.jl")
 
 end
