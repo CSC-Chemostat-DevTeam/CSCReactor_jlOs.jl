@@ -1,0 +1,5 @@
+# CONSTANTS
+const OUTPUT = 1
+const INPUT_PULLUP = 2
+
+export OUTPUT, INPUT_PULLUP

@@ -82,7 +82,7 @@ function csvcmd(args...)
 end
 
 export send_csvcmd
-function send_csvcmd(sp::SerialPort, args...; tout = 1)
+function send_csvcmd(sp::SerialPort, args...; tout = 1, log = true)
     # write
     pkg = Dict{String, Any}()
     _serial_write(sp, csvcmd(args...); tout)
@@ -95,5 +95,6 @@ function send_csvcmd(sp::SerialPort, args...; tout = 1)
         # to uniquelly identify each msg
         isempty(pkg["done_ack"]) || break
     end
+    logres(pkg)
     pkg
 end
