@@ -95,6 +95,6 @@ function send_csvcmd(sp::SerialPort, args...; tout = 1, log = true)
         # to uniquelly identify each msg
         isempty(pkg["done_ack"]) || break
     end
-    logres(pkg)
+    log && logres(pkg)
     pkg
 end
