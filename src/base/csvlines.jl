@@ -82,10 +82,12 @@ function csvcmd(args...)
 end
 
 export send_csvcmd
-function send_csvcmd(sp::SerialPort, args...; tout = 1, log = true)
+function send_csvcmd(sp::SerialPort, args...; tout = 1, log = true, logcmt = "")
     # write
     pkg = Dict{String, Any}()
+    pkg["log.cmt"] = logcmt
     _serial_write(sp, csvcmd(args...); tout)
+    # read
     while true
         line = _serial_readline(sp; tout)
         isnothing(line) && break
