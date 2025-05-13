@@ -1,8 +1,11 @@
 module CSCReactor_jlOs
-    using LibSerialPort
-    using Dates
-    using Serialization
-
+    
+    using Reexport
+    using MassExport
+    @reexport using LibSerialPort
+    @reexport using Dates
+    @reexport using Serialization
+    export LibSerialPort
     
     #! include base
     include("base/0_types.jl")
@@ -12,4 +15,5 @@ module CSCReactor_jlOs
     include("base/serial.jl")
     include("base/log.jl")
 
+    @exportall_words()
 end
